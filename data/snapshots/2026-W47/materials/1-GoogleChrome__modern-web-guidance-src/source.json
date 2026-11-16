@@ -1,0 +1,64 @@
+{
+  "full_name": "GoogleChrome/modern-web-guidance-src",
+  "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+  "fetched_at": "2026-11-17 04:00（北京时间）",
+  "kind": "full",
+  "default_branch": "main",
+  "homepage": "https://goo.gle/modern-web-guidance",
+  "head_sha": "6971ebbec2b127d57aaa24ba63bab7b9de9e656b",
+  "head_commit_date": "2026-11-16T14:59:10Z",
+  "head_commit_url": "https://github.com/GoogleChrome/modern-web-guidance-src/commit/6971ebbec2b127d57aaa24ba63bab7b9de9e656b",
+  "readme": {
+    "path": "README.md",
+    "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/main/README.md",
+    "sha": "38740d994b38f0b651d671c98f7b8133470fd47e",
+    "truncated": false
+  },
+  "latest_release": "audit-data",
+  "release_count_saved": 1,
+  "docs_saved": [
+    {
+      "saved_as": "docs/guides__README.md",
+      "original_path": "guides/README.md",
+      "truncated": false,
+      "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/6971ebbec2b127d57aaa24ba63bab7b9de9e656b/guides/README.md"
+    },
+    {
+      "saved_as": "docs/skills-src__README.md",
+      "original_path": "skills-src/README.md",
+      "truncated": false,
+      "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/6971ebbec2b127d57aaa24ba63bab7b9de9e656b/skills-src/README.md"
+    },
+    {
+      "saved_as": "docs/src__rag__README.md",
+      "original_path": "src/rag/README.md",
+      "truncated": false,
+      "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/6971ebbec2b127d57aaa24ba63bab7b9de9e656b/src/rag/README.md"
+    },
+    {
+      "saved_as": "docs/src__harness__README.md",
+      "original_path": "src/harness/README.md",
+      "truncated": false,
+      "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/6971ebbec2b127d57aaa24ba63bab7b9de9e656b/src/harness/README.md"
+    },
+    {
+      "saved_as": "docs/src__analyzing__README.md",
+      "original_path": "src/analyzing/README.md",
+      "truncated": false,
+      "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/6971ebbec2b127d57aaa24ba63bab7b9de9e656b/src/analyzing/README.md"
+    },
+    {
+      "saved_as": "docs/src__dashboard__README.md",
+      "original_path": "src/dashboard/README.md",
+      "truncated": false,
+      "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/blob/6971ebbec2b127d57aaa24ba63bab7b9de9e656b/src/dashboard/README.md"
+    }
+  ],
+  "files_saved": [
+    "repo.json",
+    "official-readme.md",
+    "releases.json",
+    "tree.txt"
+  ],
+  "errors": []
+}

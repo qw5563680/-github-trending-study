@@ -1,0 +1,11 @@
+[
+  {
+    "tag_name": "audit-data",
+    "name": "Audit data (machine-readable snapshots)",
+    "published_at": "2026-10-14T16:17:24Z",
+    "html_url": "https://github.com/GoogleChrome/modern-web-guidance-src/releases/tag/audit-data",
+    "prerelease": true,
+    "body": "Machine-readable audit snapshots for the pipeline tracker issue #1815 in GoogleChrome/modern-web-guidance-src.",
+    "body_truncated": false
+  }
+]

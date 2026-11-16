@@ -1,0 +1,18 @@
+{
+  "full_name": "anthropics/skills",
+  "html_url": "https://github.com/anthropics/skills",
+  "description": "Public repository for Agent Skills",
+  "homepage": "",
+  "topics": [
+    "agent-skills"
+  ],
+  "license": null,
+  "language": "Python",
+  "stargazers_count_api": 195933,
+  "forks_count_api": 23004,
+  "open_issues_count": 1548,
+  "default_branch": "main",
+  "created_at": "2025-09-22T15:53:31Z",
+  "pushed_at": "2026-11-16T14:22:50Z",
+  "archived": false
+}

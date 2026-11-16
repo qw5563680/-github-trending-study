@@ -6,12 +6,17 @@
 
 第一期正在整理中，写完后这里会出现“阅读最新一期”的链接。
 
+> ⏳ **本期正在整理：2026 年第 47 周**（榜首 GoogleChrome/modern-web-guidance-src）—— 榜单和官方资料已保存，榜首深度教程还没写完。[先看榜单快照](weekly/2026-W47.md)。
+
 ## 历史周报（新的在前）
 
-还没有任何一期。
+| 期数 | 榜单抓取时间（北京时间） | 抓取时的第 1 名 | 状态 |
+|---|---|---|---|
+| [2026 年第 47 周（11 月 16 日—11 月 22 日）](weekly/2026-W47.md) | 2026-11-17 04:00 | [GoogleChrome/modern-web-guidance-src](https://github.com/GoogleChrome/modern-web-guidance-src) | ⏳ 教程待生成 |
 
 ## 自动更新状态
 
+- 最近一次运行：2026-11-17 04:00（北京时间）· ✅ 已保存新一期榜单和官方资料（教程待生成） · [运行记录](https://github.com/qw5563680/-github-trending-study/actions/runs/43945238262)
 - 时间表：每周一北京时间 09:00，GitHub Actions 自动抓取榜单并保存官方资料（GitHub 的定时任务有时会晚几分钟到几十分钟）；随后由 Claude Code 云端定时任务写中文深度教程。
 - 全部运行记录：[Actions 页面](https://github.com/qw5563680/-github-trending-study/actions) · 想立刻手动跑一次：[打开这个页面](https://github.com/qw5563680/-github-trending-study/actions/workflows/weekly.yml)，点右侧 **Run workflow**。
 - 同一周重复运行不会生成重复周报；抓取或写作失败不会改动已有周报。
