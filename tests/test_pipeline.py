@@ -180,6 +180,19 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(len(list(common.weekly_dir().glob("*.md"))), 1)
         self.assertEqual(len(self.net.calls), calls_before)        # 没有重新抓取
 
+    def test_scheduled_retry_is_silent_when_issue_exists(self):
+        run_weekly.main()
+        log_before = common.run_log_path().read_text(encoding="utf-8")
+        readme_before = self.readme()
+        os.environ["GITHUB_EVENT_NAME"] = "schedule"
+        os.environ["GTS_NOW"] = "2026-11-16T09:40:00+08:00"
+        try:
+            self.assertEqual(run_weekly.main(), 0)
+        finally:
+            os.environ.pop("GITHUB_EVENT_NAME", None)
+        self.assertEqual(common.run_log_path().read_text(encoding="utf-8"), log_before)
+        self.assertEqual(self.readme(), readme_before)
+
     def test_finalize_refuses_empty_template(self):
         run_weekly.run()
         key = "2026-W47"

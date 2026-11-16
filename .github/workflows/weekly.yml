@@ -7,6 +7,9 @@ on:
   schedule:
     # 每周一 01:00（UTC）= 北京时间周一 09:00。GitHub 的定时任务可能晚几分钟到几十分钟才开始。
     - cron: "0 1 * * 1"
+    # 北京时间周一 09:35 自动补跑一次：09:00 那次如果被 GitHub 漏掉或榜单当时打不开，这里再试；
+    # 如果本期已经保存成功，这次什么都不做，也不会产生新的提交。
+    - cron: "35 1 * * 1"
   workflow_dispatch: # 手动运行入口：Actions 页面 → 每周周榜快照 → Run workflow
 
 permissions:

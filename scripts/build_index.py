@@ -158,7 +158,8 @@ def render(issues: list[dict], run_log: list[dict]) -> str:
         out.append(line)
     out += [
         "- 时间表：每周一北京时间 09:00，GitHub Actions 自动抓取榜单并保存官方资料"
-        "（GitHub 的定时任务有时会晚几分钟到几十分钟）；随后由 Claude Code 云端定时任务写中文深度教程。",
+        "（GitHub 的定时任务有时会晚几分钟到几十分钟；09:35 会自动补跑一次）；"
+        "10:10 起由 Claude Code 云端定时任务写中文深度教程（16:10 再检查一次有没有漏写的）。",
         f"- 全部运行记录：[Actions 页面]({actions}) · 想立刻手动跑一次："
         f"[打开这个页面]({actions}/workflows/weekly.yml)，点右侧 **Run workflow**。",
         "- 同一周重复运行不会生成重复周报；抓取或写作失败不会改动已有周报。",

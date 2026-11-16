@@ -17,8 +17,9 @@
 2. 找出状态不是 `complete` 的期（`pending` 或 `invalid`）。有多期时先写最新的一期，再写更早的。
 3. **没有待写的期**时：
    - 先看本周（北京时间）的快照 `data/snapshots/<本周期号>/trending.json` 是否存在。
-   - 不存在，说明 GitHub Actions 还没跑或失败了：用 GitHub 工具手动触发工作流 `weekly.yml`
-     （`workflow_dispatch`，分支 `main`），等它结束后 `git pull`，再从第 1 步开始。
+   - 不存在，说明 GitHub Actions 还没跑或失败了：如果你有能触发 GitHub Actions 的工具，
+     就手动触发工作流 `weekly.yml`（`workflow_dispatch`，分支 `main`），等它结束后 `git pull`，再从第 1 步开始；
+     没有这类工具就不要想别的办法抓榜单，说明“本周榜单还没保存”后结束（稍后的定时任务会再试一次）。
    - 工作流失败（比如榜单打不开）：**不要自己去猜榜单、不要改用别的排名、不要把旧周报改成新一期**。
      保持仓库原样，说明原因后结束。
    - 本周已经是完整周报：什么都不用做，直接结束。
@@ -162,6 +163,8 @@ python3 -m unittest discover -s tests              # 确认没有弄坏自动流
   git push origin HEAD:main
   ```
 
+- 推送被拒绝、提示远程有新提交时：运行 `git pull --rebase origin main` 后再推一次
+  （`data/run-log.json` 冲突时两边的记录都保留），不要强制推送（不要用 `--force`）。
 - 如果环境不允许直接推送到 `main`：推送到 `claude/weekly-<期号>` 分支并创建合并请求（Pull Request），
   在最后的说明里写清“需要仓库所有者点一下合并”。
 - 如果因为任何原因写不完：**保持这一期为“待生成”状态**，不要提交半成品，并说明卡在哪里。

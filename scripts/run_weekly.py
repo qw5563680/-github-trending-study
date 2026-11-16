@@ -85,12 +85,15 @@ def main() -> int:
         traceback.print_exc()
         result, key = "error", common.issue_key(common.now_beijing())
         detail = f"运行出错：{type(err).__name__}: {err}"
-    try:
-        run_log.append(result, key, detail)
-        build_index.rebuild()
-    except Exception:
-        traceback.print_exc()
-        result = "error"
+    # 定时补跑时如果本期已经存在，就什么都不写（不产生多余的提交记录）。
+    quiet = result == "exists" and os.environ.get("GITHUB_EVENT_NAME") == "schedule"
+    if not quiet:
+        try:
+            run_log.append(result, key, detail)
+            build_index.rebuild()
+        except Exception:
+            traceback.print_exc()
+            result = "error"
     _output("result", result)
     _output("issue", key)
     icon = "❌" if result in ("fetch_failed", "error") else "✅"
