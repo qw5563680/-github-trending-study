@@ -1,0 +1,68 @@
+name: 每周周榜快照
+
+# 作用：抓取 GitHub Trending 周榜，保存榜单快照和官方资料，生成周报初稿并更新首页。
+# 这里不调用任何 AI 模型，也不需要任何密钥；中文深度教程由 Claude Code 云端定时任务随后补全。
+
+on:
+  schedule:
+    # 每周一 01:00（UTC）= 北京时间周一 09:00。GitHub 的定时任务可能晚几分钟到几十分钟才开始。
+    - cron: "0 1 * * 1"
+  workflow_dispatch: # 手动运行入口：Actions 页面 → 每周周榜快照 → Run workflow
+
+permissions:
+  contents: write # 只需要把结果写回本仓库
+
+concurrency:
+  group: weekly-trending
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    name: 抓取周榜并保存资料
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      # 直接用 git 和系统自带的 python3，不依赖任何第三方 Action，也不安装任何软件包。
+      - name: 取出仓库内容
+        run: |
+          git clone --depth 1 --branch "${GITHUB_REF_NAME}" \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+
+      - name: 自检（脚本测试）
+        run: python3 -m unittest discover -s tests
+
+      - name: 抓取榜单、保存资料、生成周报初稿
+        id: run
+        run: python3 scripts/run_weekly.py
+
+      - name: 把结果保存到仓库
+        if: always()
+        env:
+          ISSUE: ${{ steps.run.outputs.issue }}
+          RESULT: ${{ steps.run.outputs.result }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "没有需要保存的变化"
+            exit 0
+          fi
+          git commit -m "周榜快照 ${ISSUE:-未知期号}：${RESULT:-未知结果}"
+          for i in 1 2 3 4; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            sleep $((i * 10))
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          echo "推送失败"
+          exit 1
+
+      - name: 抓取失败时把本次运行标记为失败
+        if: steps.run.outputs.result == 'fetch_failed' || steps.run.outputs.result == 'error'
+        run: |
+          echo "本次没有成功，原因已写入首页和 data/run-log.json；已有周报没有被改动。"
+          exit 1
