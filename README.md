@@ -14,7 +14,7 @@
 
 ## 自动更新状态
 
-- 最近一次运行：2026-11-17 04:27（北京时间）· ✅ 本期深度教程已写完
+- 最近一次运行：2026-11-17 04:28（北京时间）· ✅ 本期已存在，没有重复生成 · [运行记录](https://github.com/qw5563680/-github-trending-study/actions/runs/43950074326)
 - 时间表：每周一北京时间 09:00，GitHub Actions 自动抓取榜单并保存官方资料（GitHub 的定时任务有时会晚几分钟到几十分钟；09:35 会自动补跑一次）；10:10 起由 Claude Code 云端定时任务写中文深度教程（16:10 再检查一次有没有漏写的）。
 - 全部运行记录：[Actions 页面](https://github.com/qw5563680/-github-trending-study/actions) · 想立刻手动跑一次：[打开这个页面](https://github.com/qw5563680/-github-trending-study/actions/workflows/weekly.yml)，点右侧 **Run workflow**。
 - 同一周重复运行不会生成重复周报；抓取或写作失败不会改动已有周报。
