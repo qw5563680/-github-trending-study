@@ -17,6 +17,7 @@ RESULT_TEXT = {
     "exists": "✅ 本期已存在，没有重复生成",
     "resumed": "✅ 已补齐本期缺少的资料或初稿",
     "completed": "✅ 本期深度教程已写完",
+    "writer_check": "✅ 写作任务发布权限检查通过",
     "fetch_failed": "❌ 榜单抓取失败，已保留上一期",
     "error": "❌ 运行出错，已有周报未受影响",
 }
